@@ -1,8 +1,43 @@
 <h1>GPAポイント一覧</h1>
-<p>授業名/GPA評価</p>
-<ul>
-	<% @tasks.each do |task| %>
-		<li><%= task.title %> / <%= task.priority %> / <%= task.status %></li>
-	<% end %>
-</ul>
+
+<span>単位数</span>
+<%= @cnt %>単位
+<span>合計GPAポイント</span>
+<%= @score %>点
+
+<br>
+
+<span>平均GPAポイント</span>
+<%= @avarage %>点
+
+<br>
+
+<% if @avarage >= 3.3 %>
+	<span>学長褒章</span>
+<% end %>
+
+<br>
+
+<table>
+	<thead>
+		<tr>
+			<th>授業名</th>
+			<th>成績</th>
+			<th colspan="3"><th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @tasks.each do |task| %>
+			<tr>
+				<td><%= task.title %></td>
+				<td><%= task.status %></td>
+				<td><%= link_to '削除', task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
 <%= link_to '追加', new_task_path %>
