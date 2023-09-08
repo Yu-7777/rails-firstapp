@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-    enum :status, [:todo, :doing, :done]
+    enum :status, [:S, :A, :B, :C, :D, :F]
 end

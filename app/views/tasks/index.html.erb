@@ -1,7 +1,8 @@
-<h1>タスク一覧</h1>
+<h1>GPAポイント一覧</h1>
+<p>授業名/GPA評価</p>
 <ul>
 	<% @tasks.each do |task| %>
-		<li>タスク名/優先度/状況: <%= task.title %> / <%= task.priority %> / <%= task.status %></li>
+		<li><%= task.title %> / <%= task.priority %> / <%= task.status %></li>
 	<% end %>
 </ul>
 <%= link_to '追加', new_task_path %>
